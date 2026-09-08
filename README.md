@@ -35,7 +35,6 @@ Creating an attractive, modern, vibrant, and mobile-first marketing website for 
 #### [MODIFY] [global.css](file:///c:/Users/DELL/Documents/GitHubMain/gimsBakery/global.css)
 - Custom CSS styles extending Tailwind CSS:
   - Custom color tokens for warm bakery palette (Rose Red `#E11D48`, Warm Gold `#F59E0B`, Cream Vanilla `#FFFBEB`, Rich Cocoa `#451A03`).
-  - Confetti and festive sprinkle floating background particle keyframe animations.
   - Carousel transition effects & slide animations.
   - Glassmorphic card styling, hover elevation effects, glowing buttons.
   - Responsive layout fixes and scrollbar polish.
@@ -48,7 +47,6 @@ Creating an attractive, modern, vibrant, and mobile-first marketing website for 
   - WhatsApp Order message builder (`https://wa.me/254724323377?text=...`) encoding order details safely.
   - Custom Quote Modal logic (open, close, form handling, WhatsApp pre-fill).
   - Mobile Menu toggle & smooth scrolling navigation.
-  - Celebration confetti toggle effect.
 
 ## Verification Plan
 

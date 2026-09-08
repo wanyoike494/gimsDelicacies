@@ -352,7 +352,6 @@ let searchQuery = '';
 document.addEventListener('DOMContentLoaded', () => {
   initHeroCarousel();
   initCatalog();
-  initConfettiSprinkles();
   initMobileMenu();
   initCustomQuoteModal();
   initContactForm();
@@ -376,42 +375,11 @@ function initHeroCarousel() {
         <div class="absolute -right-20 -bottom-20 w-96 h-96 bg-rose-400/20 rounded-full blur-3xl pointer-events-none"></div>
         <div class="absolute -left-20 -top-20 w-80 h-80 bg-amber-400/20 rounded-full blur-3xl pointer-events-none"></div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center p-6 md:p-12 w-full z-10">
-          <!-- Text Content -->
-          <div class="lg:col-span-7 space-y-5 text-left">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-100 border border-rose-200 text-rose-700 text-xs md:text-sm font-semibold tracking-wide shadow-sm">
-              <i class="fa-solid fa-cake-candles text-amber-500"></i>
-              <span>${slide.badge}</span>
-            </div>
-
-            <h1 class="text-3xl md:text-5xl lg:text-6xl font-extrabold text-amber-950 leading-tight">
-              ${slide.title}
-            </h1>
-
-            <p class="text-base md:text-xl text-rose-900/80 font-medium">
-              ${slide.tagline}
-            </p>
-
-            <p class="text-sm md:text-base text-stone-600 max-w-xl leading-relaxed">
-              ${slide.desc}
-            </p>
-
-            <div class="flex flex-wrap items-center gap-4 pt-4">
-              <button onclick="triggerHeroCTA('${slide.ctaAction}')" class="btn-shimmer px-7 py-3.5 rounded-2xl bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-700 hover:to-rose-600 text-white font-bold shadow-lg shadow-rose-500/30 hover:shadow-rose-600/40 transition-all transform hover:-translate-y-0.5 flex items-center gap-3">
-                <i class="fa-brands fa-whatsapp text-xl text-emerald-300"></i>
-                <span>${slide.ctaText}</span>
-              </button>
-
-              <button onclick="openCustomQuoteModal()" class="px-6 py-3.5 rounded-2xl bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold border border-amber-300/60 shadow-sm transition-all flex items-center gap-2">
-                <i class="fa-solid fa-wand-magic-sparkles text-amber-600"></i>
-                <span>Get Custom Quote</span>
-              </button>
-            </div>
-          </div>
-
-          <!-- Slide Image Container -->
-          <div class="lg:col-span-5 relative flex justify-center">
-            <div class="relative w-64 h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 ring-4 ring-rose-200/50 group">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-8 items-center p-5 sm:p-6 md:p-12 w-full z-10">
+          
+          <!-- Slide Image Container (Top on Mobile, Right on Desktop) -->
+          <div class="order-1 lg:order-2 lg:col-span-5 relative flex justify-center">
+            <div class="relative w-56 h-56 sm:w-64 sm:h-64 md:w-80 md:h-80 lg:w-96 lg:h-96 rounded-3xl overflow-hidden shadow-2xl border-4 border-white/80 ring-4 ring-rose-200/50 group">
               <img src="${slide.image}" alt="${slide.title}" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
               
               <div class="absolute inset-0 bg-gradient-to-t from-stone-900/60 via-transparent to-transparent flex items-end p-4">
@@ -421,6 +389,39 @@ function initHeroCarousel() {
               </div>
             </div>
           </div>
+
+          <!-- Text Content (Below Image on Mobile, Left on Desktop) -->
+          <div class="order-2 lg:order-1 lg:col-span-7 space-y-4 md:space-y-5 text-left">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-100 border border-rose-200 text-rose-700 text-xs md:text-sm font-semibold tracking-wide shadow-sm">
+              <i class="fa-solid fa-cake-candles text-amber-500"></i>
+              <span>${slide.badge}</span>
+            </div>
+
+            <h1 class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-extrabold text-amber-950 leading-tight">
+              ${slide.title}
+            </h1>
+
+            <p class="text-sm sm:text-base md:text-xl text-rose-900/80 font-medium">
+              ${slide.tagline}
+            </p>
+
+            <p class="text-xs sm:text-sm md:text-base text-stone-600 max-w-xl leading-relaxed">
+              ${slide.desc}
+            </p>
+
+            <div class="flex flex-wrap items-center gap-3 sm:gap-4 pt-2 sm:pt-4">
+              <button onclick="triggerHeroCTA('${slide.ctaAction}')" class="btn-shimmer px-6 sm:px-7 py-3 sm:py-3.5 rounded-2xl bg-gradient-to-r from-rose-600 to-rose-500 hover:from-rose-700 hover:to-rose-600 text-white font-bold text-sm sm:text-base shadow-lg shadow-rose-500/30 hover:shadow-rose-600/40 transition-all transform hover:-translate-y-0.5 flex items-center gap-2.5 sm:gap-3">
+                <i class="fa-brands fa-whatsapp text-lg sm:text-xl text-emerald-300"></i>
+                <span>${slide.ctaText}</span>
+              </button>
+
+              <button onclick="openCustomQuoteModal()" class="px-5 sm:px-6 py-3 sm:py-3.5 rounded-2xl bg-amber-100 hover:bg-amber-200 text-amber-900 font-bold text-sm sm:text-base border border-amber-300/60 shadow-sm transition-all flex items-center gap-2">
+                <i class="fa-solid fa-wand-magic-sparkles text-amber-600"></i>
+                <span>Get Custom Quote</span>
+              </button>
+            </div>
+          </div>
+
         </div>
       </div>
     </div>
@@ -603,14 +604,12 @@ function renderCatalog() {
  * 3. WHATSAPP DIRECT ORDERING SYSTEM
  * ------------------------------------------------------------- */
 function openWhatsAppProductOrder(productName, price) {
-  triggerConfetti();
   const text = `Hello Gims Delicacies! 🎂\n\nI would like to order the following item:\n📌 *Product:* ${productName}\n💰 *Price:* ${price}\n\nPlease inform me of availability and delivery/pickup arrangements. Thank you!`;
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
   window.open(url, '_blank');
 }
 
 function openGeneralWhatsAppOrder() {
-  triggerConfetti();
   const text = `Hello Gims Delicacies! 🍰\n\nI visited your website and would like to inquire about your cakes, pastries, snacks, or refreshments. Please share your current menu and ordering details!`;
   const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
   window.open(url, '_blank');
@@ -644,8 +643,6 @@ function initCustomQuoteModal() {
       const servings = document.getElementById('quote-servings')?.value || 'Not specified';
       const eventDate = document.getElementById('quote-date')?.value || 'As soon as possible';
       const specialNotes = document.getElementById('quote-notes')?.value || 'None';
-
-      triggerConfetti();
 
       const text = `Hello Chef Alice & Gims Delicacies! 🎂✨\n\nI would like to request a *Custom Cake Quote* with the following details:\n\n🎉 *Event Type:* ${eventType}\n🍰 *Preferred Flavor:* ${cakeFlavor}\n👥 *Estimated Guests / Servings:* ${servings}\n📅 *Event Date:* ${eventDate}\n📝 *Special Request/Notes:* ${specialNotes}\n\nPlease get back to me with pricing and design suggestions!`;
 
@@ -686,8 +683,6 @@ function initContactForm() {
     const phone = document.getElementById('contact-phone')?.value || 'Not provided';
     const message = document.getElementById('contact-message')?.value || '';
 
-    triggerConfetti();
-
     const text = `Hello Gims Delicacies & Chef Alice! 💌\n\nNew Inquiry from Website:\n👤 *Name:* ${name}\n📧 *Email:* ${email}\n📞 *Phone:* ${phone}\n💬 *Message:* ${message}`;
 
     const url = `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
@@ -696,44 +691,6 @@ function initContactForm() {
   });
 }
 
-/* -------------------------------------------------------------
- * 6. CELEBRATION SPRINKLES & CONFETTI ENGINE
- * ------------------------------------------------------------- */
-function initConfettiSprinkles() {
-  const container = document.getElementById('bg-sprinkles-container');
-  if (!container) return;
-
-  const colors = ['#f43f5e', '#fbbf24', '#34d399', '#60a5fa', '#a78bfa', '#f472b6'];
-
-  for (let i = 0; i < 24; i++) {
-    const el = document.createElement('div');
-    el.className = 'sprinkle';
-    const size = Math.random() * 8 + 6;
-    el.style.width = `${size}px`;
-    el.style.height = `${size}px`;
-    el.style.left = `${Math.random() * 100}%`;
-    el.style.top = `${Math.random() * 100}%`;
-    el.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-    el.style.animationDuration = `${Math.random() * 8 + 6}s`;
-    el.style.animationDelay = `${Math.random() * 4}s`;
-    container.appendChild(el);
-  }
-}
-
-function triggerConfetti() {
-  const colors = ['#e11d48', '#f59e0b', '#10b981', '#3b82f6', '#8b5cf6', '#ec4899'];
-  for (let i = 0; i < 40; i++) {
-    const confetti = document.createElement('div');
-    confetti.className = 'confetti-piece';
-    confetti.style.left = `${Math.random() * 100}vw`;
-    confetti.style.backgroundColor = colors[Math.floor(Math.random() * colors.length)];
-    confetti.style.animationDuration = `${Math.random() * 2 + 2}s`;
-    confetti.style.borderRadius = Math.random() > 0.5 ? '50%' : '2px';
-    document.body.appendChild(confetti);
-
-    setTimeout(() => confetti.remove(), 4000);
-  }
-}
 
 /* -------------------------------------------------------------
  * 7. MOBILE MENU & DRAWER ENGINE
